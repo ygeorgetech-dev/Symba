@@ -1,0 +1,183 @@
+C:\Users\yazaj\OneDrive\Desktop\symba_the_best - Copy\_run_v5_full.py:991: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  ax.boxplot(box, labels=lbl, showfliers=False)
+Device: cuda
+Translation projector ready.
+[Check 1] Integer-shift round-trip max abs error: 7.153e-07 (must be ~1e-6)
+[Check 2] Galilean-style round-trip relative err: 2.15e-07
+[Check 3] FRACTIONAL-shift round trip on band-limited shock: 2.35e-07 (sampling-theorem exact)
+
+Projector sanity checks PASSED.
+Smoke-test shapes OK: (3, 6, 128)  any NaN: False  max|u|: 1.7734676599502563
+Generating Burgers dataset...
+Burgers data shape: (1000, 21, 512)  (generated in 19.1s)  NaN/Inf: False, False
+Reference FNO1d defined.
+Kernel toolbox defined: rational / chebyshev / bspline.
+[CH-KAN init] exact Hopf-Cole/Wiener operator (log-space softmax, cancellation-free); correction kernels at neutral (0 / 1). Physics constants: nu, dt_out, L only.
+All 5 model kinds build + forward OK.
+Harness ready.
+[Audit 1] max_t |mean(u_t) - mean(u0)| over entire dataset: 3.576e-07  (PASS)
+[Audit 2] galilean_canonicalize(): symmetry parameters read data[:,0] exactly once (verified structurally: Ubar is the only parameter defined)
+[Audit 3] ctx keys at inversion time: ['Ubar']
+[Audit 4] split partition OK: train=750 val=100 test=150, zero overlap, seed=0
+[Audit 5] no dataset-wide normalization statistics are used anywhere in the pipeline
+
+LEAKAGE AUDIT PASSED.
+[raw/FNO] epoch 1/100 train=0.97368 val=0.79392
+[raw/FNO] epoch 13/100 train=0.02038 val=0.01681
+[raw/FNO] epoch 25/100 train=0.01796 val=0.01540
+[raw/FNO] epoch 37/100 train=0.01494 val=0.01363
+[raw/FNO] epoch 49/100 train=0.01168 val=0.01241
+[raw/FNO] epoch 61/100 train=0.00954 val=0.00926
+[raw/FNO] epoch 73/100 train=0.00889 val=0.00865
+[raw/FNO] epoch 85/100 train=0.00854 val=0.00833
+[raw/FNO] epoch 97/100 train=0.00844 val=0.00825
+[raw/FNO] epoch 100/100 train=0.00844 val=0.00825
+[raw/FNO] params=109,428
+
+[raw/ModalKAN] epoch 1/100 train=0.86324 val=0.38729
+[raw/ModalKAN] epoch 13/100 train=0.08983 val=0.08761
+[raw/ModalKAN] epoch 25/100 train=0.06803 val=0.06909
+[raw/ModalKAN] epoch 37/100 train=0.05948 val=0.05982
+[raw/ModalKAN] epoch 49/100 train=0.05522 val=0.05582
+[raw/ModalKAN] epoch 61/100 train=0.05142 val=0.05251
+[raw/ModalKAN] epoch 73/100 train=0.04901 val=0.05094
+[raw/ModalKAN] epoch 85/100 train=0.04758 val=0.04931
+[raw/ModalKAN] epoch 97/100 train=0.04699 val=0.04874
+[raw/ModalKAN] epoch 100/100 train=0.04696 val=0.04875
+[raw/ModalKAN] params=234,240
+
+[raw/ChebyKAN] epoch 1/100 train=0.99000 val=0.94386
+[raw/ChebyKAN] epoch 13/100 train=0.09346 val=0.09141
+[raw/ChebyKAN] epoch 25/100 train=0.07378 val=0.07077
+[raw/ChebyKAN] epoch 37/100 train=0.04950 val=0.04761
+[raw/ChebyKAN] epoch 49/100 train=0.04237 val=0.04189
+[raw/ChebyKAN] epoch 61/100 train=0.03716 val=0.03713
+[raw/ChebyKAN] epoch 73/100 train=0.03438 val=0.03414
+[raw/ChebyKAN] epoch 85/100 train=0.03296 val=0.03305
+[raw/ChebyKAN] epoch 97/100 train=0.03258 val=0.03273
+[raw/ChebyKAN] epoch 100/100 train=0.03257 val=0.03272
+[raw/ChebyKAN] params=63,220
+
+[raw/KANO-R] epoch 1/100 train=0.69038 val=0.25376
+[raw/KANO-R] epoch 13/100 train=0.05364 val=0.04741
+[raw/KANO-R] epoch 25/100 train=0.03659 val=0.03737
+[raw/KANO-R] epoch 37/100 train=0.03669 val=0.03817
+[raw/KANO-R] epoch 49/100 train=0.03122 val=0.02898
+[raw/KANO-R] epoch 61/100 train=0.02431 val=0.02376
+[raw/KANO-R] epoch 73/100 train=0.02087 val=0.02069
+[raw/KANO-R] epoch 85/100 train=0.01779 val=0.01791
+[raw/KANO-R] epoch 97/100 train=0.01700 val=0.01710
+[raw/KANO-R] epoch 100/100 train=0.01698 val=0.01709
+[raw/KANO-R] params=236,052
+
+[CH-KAN init] exact Hopf-Cole/Wiener operator (log-space softmax, cancellation-free); correction kernels at neutral (0 / 1). Physics constants: nu, dt_out, L only.
+[raw/CH-KAN] epoch 1/100 train=0.00011 val=0.00002
+[raw/CH-KAN] epoch 13/100 train=0.00002 val=0.00002
+[raw/CH-KAN] epoch 25/100 train=0.00003 val=0.00003
+[raw/CH-KAN] epoch 37/100 train=0.00002 val=0.00002
+[raw/CH-KAN] epoch 49/100 train=0.00002 val=0.00002
+[raw/CH-KAN] epoch 61/100 train=0.00002 val=0.00001
+[raw/CH-KAN] epoch 73/100 train=0.00002 val=0.00001
+[raw/CH-KAN] epoch 85/100 train=0.00002 val=0.00001
+[raw/CH-KAN] epoch 97/100 train=0.00002 val=0.00001
+[raw/CH-KAN] epoch 100/100 train=0.00002 val=0.00001
+[raw/CH-KAN] params=22
+
+Parameter parity vs FNO:
+  FNO          109,428  ( 1.00x)
+  ModalKAN     234,240  ( 2.14x)
+  ChebyKAN      63,220  ( 0.58x)
+  KANO-R       236,052  ( 2.16x)
+  CH-KAN            22  ( 0.00x)
+
+Validation-only KAN scores: {'ModalKAN': 0.04874, 'ChebyKAN': 0.03272, 'KANO-R': 0.01709, 'CH-KAN': 1e-05}
+==> KAN WINNER (by validation): CH-KAN
+FNO raw (reference baseline): rel-L2 = 0.0092
+ModalKAN raw: rel-L2 = 0.0485  (-425.2% vs FNO)
+ChebyKAN raw: rel-L2 = 0.0357  (-287.1% vs FNO)
+KANO-R raw: rel-L2 = 0.0178  (-93.2% vs FNO)
+CH-KAN raw: rel-L2 = 0.0000  (+99.8% vs FNO)
+[gal/FNO] epoch 1/100 train=0.98916 val=0.74929
+[gal/FNO] epoch 13/100 train=0.02235 val=0.02255
+[gal/FNO] epoch 25/100 train=0.01668 val=0.01525
+[gal/FNO] epoch 37/100 train=0.01338 val=0.01437
+[gal/FNO] epoch 49/100 train=0.01089 val=0.01273
+[gal/FNO] epoch 61/100 train=0.00767 val=0.00973
+[gal/FNO] epoch 73/100 train=0.00630 val=0.00599
+[gal/FNO] epoch 85/100 train=0.00585 val=0.00560
+[gal/FNO] epoch 97/100 train=0.00572 val=0.00549
+[gal/FNO] epoch 100/100 train=0.00572 val=0.00549
+[Galilean closed-form] FNO: rel-L2 = 0.0010  (+89.7% vs FNO-raw baseline)
+    temporal-variance reduction from canonicalization: 96.4%
+[gal/KANO-R] epoch 1/100 train=0.96064 val=0.60865
+[gal/KANO-R] epoch 13/100 train=0.09616 val=0.08064
+[gal/KANO-R] epoch 25/100 train=0.04759 val=0.05085
+[gal/KANO-R] epoch 37/100 train=0.03700 val=0.04001
+[gal/KANO-R] epoch 49/100 train=0.04018 val=0.04238
+[gal/KANO-R] epoch 61/100 train=0.02465 val=0.02268
+[gal/KANO-R] epoch 73/100 train=0.02118 val=0.01948
+[gal/KANO-R] epoch 85/100 train=0.01603 val=0.01581
+[gal/KANO-R] epoch 97/100 train=0.01450 val=0.01434
+[gal/KANO-R] epoch 100/100 train=0.01443 val=0.01430
+[Galilean closed-form] KANO-R: rel-L2 = 0.0023  (+75.4% vs FNO-raw baseline)
+    temporal-variance reduction from canonicalization: 96.4%
+[CH-KAN init] exact Hopf-Cole/Wiener operator (log-space softmax, cancellation-free); correction kernels at neutral (0 / 1). Physics constants: nu, dt_out, L only.
+[gal/CH-KAN] epoch 1/100 train=0.00058 val=0.00014
+[gal/CH-KAN] epoch 13/100 train=0.00020 val=0.00020
+[gal/CH-KAN] epoch 25/100 train=0.00012 val=0.00011
+[gal/CH-KAN] epoch 37/100 train=0.00011 val=0.00013
+[gal/CH-KAN] epoch 49/100 train=0.00011 val=0.00011
+[gal/CH-KAN] epoch 61/100 train=0.00011 val=0.00011
+[gal/CH-KAN] epoch 73/100 train=0.00011 val=0.00010
+[gal/CH-KAN] epoch 85/100 train=0.00011 val=0.00010
+[gal/CH-KAN] epoch 97/100 train=0.00010 val=0.00010
+[gal/CH-KAN] epoch 100/100 train=0.00010 val=0.00010
+[Galilean closed-form] CH-KAN: rel-L2 = 0.0000  (+99.8% vs FNO-raw baseline)
+    temporal-variance reduction from canonicalization: 96.4%
+Galilean arms run for: ['FNO', 'KANO-R', 'CH-KAN']
+FNO        inference:    2.53 ms/batch (   12651 samples/s)   training:  0.134 s/epoch
+ModalKAN   inference:    2.49 ms/batch (   12841 samples/s)   training:  0.124 s/epoch
+ChebyKAN   inference:    7.93 ms/batch (    4034 samples/s)   training:  0.371 s/epoch
+KANO-R     inference:   36.32 ms/batch (     881 samples/s)   training:  1.930 s/epoch
+CH-KAN     inference:   88.71 ms/batch (     361 samples/s)   training:  2.515 s/epoch
+
+SPEED: winner (CH-KAN) vs FNO -> inference 0.03x (slower), training 0.05x (slower)
+[saved] plots_v5/v5_bars_00.png
+[saved] plots_v5/v5_curves_box_01.png
+[saved] plots_v5/v5_solutions_02.png
+[saved] plots_v5/v5_error_maps_03.png
+[saved] plots_v5/v5_kernels_colehopf_04.png
+[saved] plots_v5/v5_kernels_softmax_05.png
+[saved] plots_v5/v5_kernels_convolution_06.png
+[saved] plots_v5/v5_spectrum_overlay_07.png
+SYMBA v5 -- KAN OPERATORS + GALILEAN CLOSED-FORM SYMMETRY SUMMARY
+==============================================================================
+Shared reference FNO baseline (raw data) relative-L2 : 0.0092
+
+model                  symmetry        rel-L2  vs FNO-raw     params  ms/batch  s/epoch
+---------------------------------------------------------------------------------------
+FNO (reference)        none            0.0092       +0.0%    109,428      2.53    0.134
+ModalKAN               none            0.0485     -425.2%    234,240      2.49    0.124
+ChebyKAN               none            0.0357     -287.1%     63,220      7.93    0.371
+KANO-R                 none            0.0178      -93.2%    236,052     36.32    1.930
+CH-KAN                 none            0.0000      +99.8%         22     88.71    2.515
+FNO                    Gal-closed-form    0.0010      +89.7%    109,428      2.53    0.134
+KANO-R                 Gal-closed-form    0.0023      +75.4%    236,052     36.32    1.930
+CH-KAN                 Gal-closed-form    0.0000      +99.8%         22     88.71    2.515
+---------------------------------------------------------------------------------------
+
+KAN winner selected by VALIDATION error only: CH-KAN
+Temporal-variance reduction by Galilean canonicalization: 96.4%
+Displacement source: physics-exact drift U*tau*dt_out*S/L, U = mean(u0) -- conservation residual 3.6e-07
+
+Interpretation:
+- 'raw' rows: baselines WITHOUT symmetry; compare directly against the v4 shared-FNO 0.0099.
+- '+ Gal-cf' rows: same architecture inside the EXACT v4 Galilean co-moving pipeline.
+- KANO-R + Gal-cf answers 'symmetry vs architecture': the exact symmetry lifts
+  the strongest generic KAN -- compare against KANO-R raw and FNO + Gal-cf.
+- Every learned kernel is drawable: see v5_kernels_*.png produced by the cells above.
+
+SPEED (winner CH-KAN vs FNO): inference 0.03x, training 0.05x per-epoch wall-clock.
+- References: Liu et al. arXiv:2404.19756 (KAN); Lee et al. arXiv:2509.16825 (KANO);
+  Wu et al. arXiv:2510.08795 (rational CKAN); Popovych et al. arXiv:2406.02809 (symmetries).
+EXIT=0

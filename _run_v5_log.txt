@@ -1,0 +1,127 @@
+C:\Users\yazaj\OneDrive\Desktop\symba_the_best - Copy\_run_v5_script.py:991: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  ax.boxplot(box, labels=lbl, showfliers=False)
+Device: cuda
+Translation projector ready.
+[Check 1] Integer-shift round-trip max abs error: 7.153e-07 (must be ~1e-6)
+[Check 2] Galilean-style round-trip relative err: 2.15e-07
+[Check 3] FRACTIONAL-shift round trip on band-limited shock: 2.35e-07 (sampling-theorem exact)
+
+Projector sanity checks PASSED.
+Smoke-test shapes OK: (3, 6, 128)  any NaN: False  max|u|: 1.7734676599502563
+Generating Burgers dataset...
+Burgers data shape: (120, 21, 512)  (generated in 18.2s)  NaN/Inf: False, False
+Reference FNO1d defined.
+Kernel toolbox defined: rational / chebyshev / bspline.
+[CH-KAN init] exact Hopf-Cole/Wiener operator (log-space softmax, cancellation-free); correction kernels at neutral (0 / 1). Physics constants: nu, dt_out, L only.
+All 5 model kinds build + forward OK.
+Harness ready.
+[Audit 1] max_t |mean(u_t) - mean(u0)| over entire dataset: 3.576e-07  (PASS)
+[Audit 2] galilean_canonicalize(): symmetry parameters read data[:,0] exactly once (verified structurally: Ubar is the only parameter defined)
+[Audit 3] ctx keys at inversion time: ['Ubar']
+[Audit 4] split partition OK: train=85 val=15 test=20, zero overlap, seed=0
+[Audit 5] no dataset-wide normalization statistics are used anywhere in the pipeline
+
+LEAKAGE AUDIT PASSED.
+[raw/FNO] epoch 1/3 train=1.00096 val=0.99182
+[raw/FNO] epoch 2/3 train=0.99816 val=0.98626
+[raw/FNO] epoch 3/3 train=0.99665 val=0.98404
+[raw/FNO] params=109,428
+
+[raw/ModalKAN] epoch 1/3 train=1.13158 val=1.05913
+[raw/ModalKAN] epoch 2/3 train=1.04923 val=1.01770
+[raw/ModalKAN] epoch 3/3 train=1.01719 val=1.00196
+[raw/ModalKAN] params=234,240
+
+[raw/ChebyKAN] epoch 1/3 train=1.00348 val=1.00325
+[raw/ChebyKAN] epoch 2/3 train=1.00103 val=0.99783
+[raw/ChebyKAN] epoch 3/3 train=0.99946 val=0.99620
+[raw/ChebyKAN] params=63,220
+
+[raw/KANO-R] epoch 1/3 train=1.00069 val=0.99650
+[raw/KANO-R] epoch 2/3 train=0.99759 val=0.98805
+[raw/KANO-R] epoch 3/3 train=0.99201 val=0.98224
+[raw/KANO-R] params=236,052
+
+[CH-KAN init] exact Hopf-Cole/Wiener operator (log-space softmax, cancellation-free); correction kernels at neutral (0 / 1). Physics constants: nu, dt_out, L only.
+[raw/CH-KAN] epoch 1/3 train=0.00020 val=0.00007
+[raw/CH-KAN] epoch 2/3 train=0.00011 val=0.00019
+[raw/CH-KAN] epoch 3/3 train=0.00015 val=0.00009
+[raw/CH-KAN] params=22
+
+Parameter parity vs FNO:
+  FNO          109,428  ( 1.00x)
+  ModalKAN     234,240  ( 2.14x)
+  ChebyKAN      63,220  ( 0.58x)
+  KANO-R       236,052  ( 2.16x)
+  CH-KAN            22  ( 0.00x)
+
+Validation-only KAN scores: {'ModalKAN': 1.00196, 'ChebyKAN': 0.9962, 'KANO-R': 0.98224, 'CH-KAN': 7e-05}
+==> KAN WINNER (by validation): CH-KAN
+FNO raw (reference baseline): rel-L2 = 0.9944
+ModalKAN raw: rel-L2 = 1.0031  (-0.9% vs FNO)
+ChebyKAN raw: rel-L2 = 0.9986  (-0.4% vs FNO)
+KANO-R raw: rel-L2 = 0.9877  (+0.7% vs FNO)
+CH-KAN raw: rel-L2 = 0.0001  (+100.0% vs FNO)
+[gal/FNO] epoch 1/3 train=1.03792 val=1.01433
+[gal/FNO] epoch 2/3 train=1.01408 val=1.00441
+[gal/FNO] epoch 3/3 train=1.00478 val=1.00226
+[Galilean closed-form] FNO: rel-L2 = 0.1522  (+84.7% vs FNO-raw baseline)
+    temporal-variance reduction from canonicalization: 96.4%
+[gal/KANO-R] epoch 1/3 train=1.03389 val=1.00972
+[gal/KANO-R] epoch 2/3 train=1.00762 val=1.00050
+[gal/KANO-R] epoch 3/3 train=1.00063 val=0.99940
+[Galilean closed-form] KANO-R: rel-L2 = 0.1518  (+84.7% vs FNO-raw baseline)
+    temporal-variance reduction from canonicalization: 96.4%
+[CH-KAN init] exact Hopf-Cole/Wiener operator (log-space softmax, cancellation-free); correction kernels at neutral (0 / 1). Physics constants: nu, dt_out, L only.
+[gal/CH-KAN] epoch 1/3 train=0.00139 val=0.00115
+[gal/CH-KAN] epoch 2/3 train=0.00077 val=0.00150
+[gal/CH-KAN] epoch 3/3 train=0.00147 val=0.00129
+[Galilean closed-form] CH-KAN: rel-L2 = 0.0002  (+100.0% vs FNO-raw baseline)
+    temporal-variance reduction from canonicalization: 96.4%
+Galilean arms run for: ['FNO', 'KANO-R', 'CH-KAN']
+FNO        inference:    5.74 ms/batch (    5573 samples/s)   training:  0.091 s/epoch
+ModalKAN   inference:    4.42 ms/batch (    7241 samples/s)   training:  0.083 s/epoch
+ChebyKAN   inference:   17.84 ms/batch (    1794 samples/s)   training:  0.232 s/epoch
+KANO-R     inference:   91.88 ms/batch (     348 samples/s)   training:  0.675 s/epoch
+CH-KAN     inference:  109.08 ms/batch (     293 samples/s)   training:  0.563 s/epoch
+
+SPEED: winner (CH-KAN) vs FNO -> inference 0.05x (slower), training 0.16x (slower)
+[saved] plots_v5/v5_bars_00.png
+[saved] plots_v5/v5_curves_box_01.png
+[saved] plots_v5/v5_solutions_02.png
+[saved] plots_v5/v5_error_maps_03.png
+[saved] plots_v5/v5_kernels_colehopf_04.png
+[saved] plots_v5/v5_kernels_softmax_05.png
+[saved] plots_v5/v5_kernels_convolution_06.png
+[saved] plots_v5/v5_spectrum_overlay_07.png
+SYMBA v5 -- KAN OPERATORS + GALILEAN CLOSED-FORM SYMMETRY SUMMARY
+==============================================================================
+Shared reference FNO baseline (raw data) relative-L2 : 0.9944
+
+model                  symmetry        rel-L2  vs FNO-raw     params  ms/batch  s/epoch
+---------------------------------------------------------------------------------------
+FNO (reference)        none            0.9944       +0.0%    109,428      5.74    0.091
+ModalKAN               none            1.0031       -0.9%    234,240      4.42    0.083
+ChebyKAN               none            0.9986       -0.4%     63,220     17.84    0.232
+KANO-R                 none            0.9877       +0.7%    236,052     91.88    0.675
+CH-KAN                 none            0.0001     +100.0%         22    109.08    0.563
+FNO                    Gal-closed-form    0.1522      +84.7%    109,428      5.74    0.091
+KANO-R                 Gal-closed-form    0.1518      +84.7%    236,052     91.88    0.675
+CH-KAN                 Gal-closed-form    0.0002     +100.0%         22    109.08    0.563
+---------------------------------------------------------------------------------------
+
+KAN winner selected by VALIDATION error only: CH-KAN
+Temporal-variance reduction by Galilean canonicalization: 96.4%
+Displacement source: physics-exact drift U*tau*dt_out*S/L, U = mean(u0) -- conservation residual 3.6e-07
+
+Interpretation:
+- 'raw' rows: baselines WITHOUT symmetry; compare directly against the v4 shared-FNO 0.0099.
+- '+ Gal-cf' rows: same architecture inside the EXACT v4 Galilean co-moving pipeline.
+- KANO-R + Gal-cf answers 'symmetry vs architecture': the exact symmetry lifts
+  the strongest generic KAN -- compare against KANO-R raw and FNO + Gal-cf.
+- Every learned kernel is drawable: see v5_kernels_*.png produced by the cells above.
+
+SPEED (winner CH-KAN vs FNO): inference 0.05x, training 0.16x per-epoch wall-clock.
+- References: Liu et al. arXiv:2404.19756 (KAN); Lee et al. arXiv:2509.16825 (KANO);
+  Wu et al. arXiv:2510.08795 (rational CKAN); Popovych et al. arXiv:2406.02809 (symmetries).
+EXIT=0
